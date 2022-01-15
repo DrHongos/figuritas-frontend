@@ -4,8 +4,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import * as serviceWorker from './serviceWorker';
-import { HashRouter as Router } from 'react-router-dom'
-import {SystemsProvider} from './contexts/systems';
+import { HashRouter as Router } from 'react-router-dom';
 import Web3ContextProvider from './contexts/Web3Context';
 
 ReactDOM.render(
@@ -13,9 +12,7 @@ ReactDOM.render(
     <ColorModeScript />
     <Router>
       <Web3ContextProvider>
-        <SystemsProvider>
-          <App />
-        </SystemsProvider>
+        <App />
       </Web3ContextProvider>
     </Router>
   </StrictMode>,
