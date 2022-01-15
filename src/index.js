@@ -7,6 +7,8 @@ import * as serviceWorker from './serviceWorker';
 import { HashRouter as Router } from 'react-router-dom';
 import Web3ContextProvider from './contexts/Web3Context';
 
+const subgraphQueries = "https://api.thegraph.com/subgraphs/name/drhongos/figuritas-goerli";
+
 ReactDOM.render(
   <StrictMode>
     <ColorModeScript />

@@ -1,19 +1,17 @@
-import { ReactNode } from 'react';
 import {
   Box,
   Flex,
-  Avatar,
   Button,
   Menu,
   MenuButton,
   MenuList,
   MenuItem,
   MenuDivider,
-  useDisclosure,
-  useColorModeValue,
+  Image,
   Stack,
   useColorMode,
   Center,
+  HStack,
 } from '@chakra-ui/react';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import {Link} from 'react-router-dom';
@@ -21,25 +19,61 @@ import { useWeb3Context } from "../contexts/Web3Context";
 
 export default function Nav() {
   const { colorMode, toggleColorMode } = useColorMode();
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const { connectWeb3, account, disconnectWeb3 } = useWeb3Context();
 
   return (
     <>
-      <Box bg={useColorModeValue('gray.100', 'gray.900')} px={4}>
+      <Box style={{"backgroundColor":"#E5E5E5"}} px={4}>
         <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-          <Box>Figuritas</Box>
+          <HStack>
+            <Image src="./assets/LOGO.png" alt="logo" width="30px" />
+            <Link to='/'>
+              <p style={{
+                color: "#3C3838",
+                fontFamily: "Rubik",
+                fontSize: "18px",
+                lineHeight: "21px",
+                letterSpacing: "4%",
+                fontWeight: 800,
+              }}>Figuritas</p>
+            </Link>
+          </HStack>
+
 
           <Flex alignItems={'center'}>
-            <Stack direction={'row'} spacing={7}>
+            <Stack direction={'row'} spacing={7} alignItems={'center'}>
               <Link to='/explore'>
-                Explore
+                <p style={{
+                  color: "#3C3838",
+                  fontFamily: "Rubik",
+                  fontSize: "16px",
+                  lineHeight: "19px",
+                  letterSpacing: "4%",
+                  fontWeight: 700,
+                  fontStyle: 'bold',
+                }}>Explore</p>
               </Link>
               <Link to='/create'>
-                Create
+                <p style={{
+                  color: "#3C3838",
+                  fontFamily: "Rubik",
+                  fontSize: "16px",
+                  lineHeight: "19px",
+                  letterSpacing: "4%",
+                  fontWeight: 700,
+                  fontStyle: 'bold',
+                }}>Create</p>
               </Link>
               <Link to='/trade'>
-                TradeCourt
+                <p style={{
+                  color: "#3C3838",
+                  fontFamily: "Rubik",
+                  fontSize: "16px",
+                  lineHeight: "19px",
+                  letterSpacing: "4%",
+                  fontWeight: 700,
+                  fontStyle: 'bold',
+                }}>TradeCourt</p>
               </Link>
               <Button onClick={toggleColorMode}>
                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}

@@ -3,19 +3,17 @@ import {
   ChakraProvider,
   Box,
   VStack,
-  Grid,
   theme,
 } from '@chakra-ui/react';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import Nav from './components/Nav';
+import Nav from "./components/Nav";
 import { Toaster } from "react-hot-toast";
-
+import AlbumPage from "./components/AlbumPage";
 function App() {
   return (
     <ChakraProvider theme={theme}>
       <Box textAlign="center" fontSize="xl">
         <Nav />
-        <Grid minH="100vh" p={3}>
           <Toaster />
           <VStack spacing={8}>
           <Switch>
@@ -24,6 +22,7 @@ function App() {
             </Route>
             <Route path='/album/:albumCID'>
               <p>album</p>
+              <AlbumPage />
             </Route>
             <Route path='/explore'>
               <p>explore</p>
@@ -36,12 +35,13 @@ function App() {
             </Route>
 
             <Route exact path='/'>
-              <p>landing</p>
+              <div>
+                <img alt="background" src="./assets/portadaFiguritas.png" width="100%" />
+              </div>
             </Route>
             <Redirect to="/" />
           </Switch>
           </VStack>
-        </Grid>
       </Box>
     </ChakraProvider>
   );
